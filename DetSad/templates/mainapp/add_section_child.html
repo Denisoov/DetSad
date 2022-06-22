@@ -9,56 +9,81 @@
         <title>Добавление ребёнка в секцию</title>
 </head>
 
-<body>
-<div class="b-left">
+<body class="wrapper">
+<div class="wrapper__navigation">
     <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
+  <h2 class="wrapper__navigation-title">Меню</h2>
   <nav class="small" id="toc">
     <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+      <li class="wrapper__navigation-link">
+          <a 
+            href="/" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Профиль</a>
       </li>
-      <li class="my-2">
-        <a href="/add_section_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить доб. образование</a>
+      <li class="wrapper__navigation-link">
+        <a 
+          href="/add_section_child" 
+          class="wrapper__navigation-link" 
+          data-bs-toggle="collapse" aria-expanded="false" 
+          data-bs-target="#contents-collapse" 
+          aria-controls="contents-collapse"
+        >Добавить доб. образование</a>
       </li>
-        <li class="my-2">
-        <a href="/sections" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Список доп. образований</a>
+        <li class="wrapper__navigation-link">
+        <a 
+          href="/sections" 
+          class="wrapper__navigation-link" 
+          data-bs-toggle="collapse" aria-expanded="false" 
+          data-bs-target="#contents-collapse" 
+          aria-controls="contents-collapse"
+        >Список доп. образований</a>
       </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+      <li class="wrapper__navigation-link">
+        <a 
+          href="/logout" 
+          class="wrapper__navigation-link" 
+          data-bs-toggle="collapse" aria-expanded="false" 
+          data-bs-target="#contents-collapse" 
+          aria-controls="contents-collapse"
+        >Выйти</a>
       </li>
     </ul>
   </nav>
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Добавление дополнительного образования</h2>
-    <br>
+    <h2 class="wrapper__content-title dop-title">Добавление дополнительного образования</h2>
     <form method="POST">
         {% csrf_token %}
         <div style="display: flex;">
-            <h5>Выберите ребёнка:&nbsp;</h5>
-             <select name='selected_child'>
+            <div class="flex-form">
+              <h5>Выберите ребёнка:&nbsp;</h5>
+              <select style="font-size: 20px" name='selected_child'>
                     {% for child in childs %}
-                            <option value='{{child.id}}'>{{ child.Lastname }}&nbsp;{{ child.Firstname}}</option>
+                      <option value='{{child.id}}'>{{ child.Lastname }}&nbsp;{{ child.Firstname}}</option>
                 {% endfor %}
-            </select>
+              </select>
+          </div>
         </div>
-        <br>
         <div style="display: flex;">
-            <h5>Выберите секцию:&nbsp;</h5>
-             <select name='selected_section'>
+            <div class="flex-form">
+              <h5>Выберите секцию:&nbsp;</h5>
+              <select style="font-size: 20px" name='selected_section'>
                  {% for section in sections %}
                     <option value='{{section.id}}'>{{ section.organization.title }}:&nbsp;{{ section.title}}</option>
                 {% endfor %}
-            </select>
+              </select>
+            </div>
         </div>
-        <br>
         <div class="form-group">
-            <div class="mx-auto col-lg-2">
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Добавить</button>
+            <div class="col-lg-4">
+                <button class="button-standart" class="w-100 btn btn-lg" type="submit">Добавить</button>
             </div>
         </div>
     </form>

@@ -24,68 +24,142 @@
 </head>
 
 <body>
-<div class="b-left">
-    <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
-  <nav class="small" id="toc">
-    <ul class="list-unstyled">
+<div class="wrapper__navigation">
+  <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+    <h2 class="wrapper__navigation-title">Меню</h2>
+    <nav class="small" id="toc">
+      <ul class="list-unstyled">
         {% if role == 'p' %}
-        <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
-      </li>
-      <li class="my-2">
-        <a href="/add_section_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить доб. образование</a>
-      </li>
-        <li class="my-2">
-        <a href="/sections" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Список доп. образований</a>
-      </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
-      </li>
-        {% elif role == 'g' %}
-     <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
-      </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
-      </li>
-        <li class="my-2">
-        <a href="/group_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
-      </li>
-        <li class="my-2">
-        <a href="/add_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
-      </li>
-        <li class="my-2">
-        <a href="/add_parent" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
-      </li>
-         <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
-      </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
-      </li>
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Профиль</a>
+        </li>
+
+       <li class="wrapper__navigation-link">
+          <a 
+            href="/add_section_child" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Добавить доб. образование</a>
+        </li>
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/sections" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Список доп. образований</a>
+        </li>
+
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/logout" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Выйти</a>
+        </li>
+          {% elif role == 'g' %}
+        <li class="wrapper__navigation-link">
+            <a 
+              href="/" 
+              class="wrapper__navigation-link" 
+              data-bs-toggle="collapse" aria-expanded="false" 
+              data-bs-target="#contents-collapse" 
+              aria-controls="contents-collapse"
+            >Профиль</a>
+        </li>
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/load_childs" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Анализ загруженности</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a 
+            href="/group_search" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Поиск по группам</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a 
+            href="/add_child" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Добавить ребёнка</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a 
+            href="/add_parent" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Добавить родителя ребенку</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a 
+            href="/admin" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Панель администратора</a>
+        </li>
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/logout" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Выйти</a>
+        </li>
 
        {% elif role == 'o' %}
-        <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+        <li class="wrapper__navigation-link">
+          <a 
+            href="/" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Профиль</a>
       </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
+      <li class="wrapper__navigation-link">
+        <a href="/load_childs" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
       </li>
-        <li class="my-2">
-        <a href="/garten_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
+        <li class="wrapper__navigation-link">
+        <a href="/garten_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
       </li>
-        <li class="my-2">
-        <a href="/add_garten" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_garten" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
       </li>
-         <li class="my-2">
-        <a href="/add_section" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
+         <li class="wrapper__navigation-link">
+        <a href="/add_section" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
       </li>
-         <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
+         <li class="wrapper__navigation-link">
+        <a href="/admin" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
       </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+      <li class="wrapper__navigation-link">
+        <a href="/logout" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
       </li>
        {% endif %}
 
@@ -94,39 +168,42 @@
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Информация о ребёнке</h2>
+    <h2 class="wrapper__content-title">Информация о ребёнке</h2>
     <br>
-    <div style="display: flex;">
-         <img src="{% static 'img/chel.png' %}">
+    <div class="wrapper__content-chied-profile">
+         <img class="chied-profile__image" src="{% static 'img/chel.png' %}">
         <ul>
             {% if child.Secondname != None %}
                 <li><h3>{{ child.Lastname }}&nbsp;{{ child.Firstname }}&nbsp;{{child.Secondname}}</h3></li>
             {% else %}
                 <li><h3>{{ child.Lastname }}&nbsp;{{ child.Firstname }}</h3></li>
             {% endif %}
-                <li><h4>Садик: {{ child.group.garten.title}}</h4></li>
-                <li><h4>Номер группы: {{ child.group.title}}</h4></li>
+                <li class="chied-profile__organization"><p>Садик: <strong>{{ child.group.garten.title}}</strong></p></li>
+                <li class="chied-profile__group"><p>Номер группы: <strong>{{ child.group.title}}</strong></p></li>
         </ul>
     </div>
-    <br>
-    <br>
-    <h3 style="display: flex; justify-content: center; align-items: center;">Секции</h3>
-    <br>
-    <table>
-        <tr><th>Дата начала</th><th>Наименование</th><th>Организация</th><th>Загруженность</th></tr>
+    <h4 class="wrapper__content-title">Общая загруженность: {{load_all}}%</h4>
+    <h3 class="wrapper__content-title table-title">Секции</h3>
+    <table class="wrapper__content__table">
+        <thead>
+          <tr>
+            <th>Дата начала</th>
+            <th>Наименование</th>
+            <th>Организация</th>
+            <th>Загруженность</th>
+          </tr>
+        </thead>
         {% for section,load in section_list %}
             <tr>
-                <td>{{section.date}}</td>
-                <td>{{section.title}}</td>
-                <td>{{section.organization.title}}</td>
-                <td>{{load}}%</td>
+              <td>{{section.date}}</td>
+              <td>{{section.title}}</td>
+              <td>{{section.organization.title}}</td>
+              <td>{{load}}%</td>
             </tr>
         {% endfor %}
     </table>
-    <br>
-    <h4>Общая загруженность: {{load_all}}%</h4>
 </div>
 </body>
 </html>

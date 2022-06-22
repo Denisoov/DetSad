@@ -13,14 +13,20 @@
     {% endif %}
 </head>
 
-<body>
-<div class="b-left">
+<body class="wrapper">
+<div class="wrapper__navigation">
     <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
+  <h2 class="wrapper__navigation-title">Меню</h2>
   <nav class="small" id="toc">
     <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Назад</a>
+      <li class="wrapper__navigation-link" >
+          <a 
+            href="/" 
+            class="wrapper__navigation-link" 
+            data-bs-toggle="collapse" aria-expanded="false" 
+            data-bs-target="#contents-collapse" 
+            aria-controls="contents-collapse"
+          >Назад</a>
       </li>
       </li>
     </ul>
@@ -28,21 +34,21 @@
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
     <br>
-    <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+    <div class="col-md-4 mx-auto col-lg-7">
+        <form class="p-4 border rounded-3 bg-light" method="POST">
             {% csrf_token %}
-            <h3 align="center">Изменение профиля {{ person.username }}</h3>
+            <h3 class="wrapper__content-title">Изменение профиля {{ person.username }}</h3>
             <br>
           <div class="form-floating mb-3">
             <input type="Text" name="first_name" class="form-control" id="floatingInput" placeholder="Иван" value="{{person.first_name}}">
-            <label for="floatingInput">Имя</label>
+            <label class="p-2" for="floatingInput">Имя</label>
           </div>
           <div class="form-floating mb-3">
             <input type="Text" name="last_name" class="form-control" id="floatingPassword" placeholder="Иванов" value="{{person.last_name}}">
-            <label for="floatingPassword">Фамилия</label>
+            <label class="p-2" for="floatingPassword">Фамилия</label>
           </div>
           <button class="w-100 btn btn-lg btn-primary" type="submit">Изменить</button>
           <hr class="my-4">
