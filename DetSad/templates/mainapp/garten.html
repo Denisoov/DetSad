@@ -29,65 +29,71 @@
   <h2 class="wrapper__navigation-title">Меню</h2>
   <nav class="small" id="toc">
      <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+      <li class="wrapper__navigation-link">
+          <a href="/" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
       </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
+      <li class="wrapper__navigation-link">
+        <a href="/load_childs" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
       </li>
        {% if role == 'g' %}
-        <li class="my-2">
-        <a href="/group_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
+        <li class="wrapper__navigation-link">
+        <a href="/group_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
       </li>
        {% else %}
-       <li class="my-2">
-        <a href="/garten_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
+       <li class="wrapper__navigation-link">
+        <a href="/garten_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
       </li>
        {% endif %}
        {% if role == 'g' %}
-        <li class="my-2">
-        <a href="/add_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_child" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
       </li>
-        <li class="my-2">
-        <a href="/add_parent" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_parent" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
       </li>
        {% else %}
-       <li class="my-2">
-        <a href="/add_garten" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
+       <li class="wrapper__navigation-link">
+        <a href="/add_garten" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
       </li>
-        <li class="my-2">
-        <a href="/add_section" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_section" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
       </li>
        {% endif %}
-        <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
+        <li class="wrapper__navigation-link">
+        <a href="/admin" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
       </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+      <li class="wrapper__navigation-link">
+        <a href="/logout" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
       </li>
     </ul>
   </nav>
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Информация о садике</h2>
+    <h2 class="wrapper__content-title">Информация о садике</h2>
     <br>
-    <div style="display: flex;">
+    <div class="content__profile">
          <img src="{% static 'img/chel.png' %}">
-        <ul>
-            <li><h3>{{garten.title}}</h3></li>
-            <li><h4>№&nbsp;{{garten.number}}</h4></li>
-            <li><h4>Директор:&nbsp;{{ garten.director }}</h4></li>
-        </ul>
+         <div class="content__profile-description">
+            <ul>
+                <li><h3>{{garten.title}}</h3></li>
+                <li><h4>№&nbsp;{{garten.number}}</h4></li>
+                <li><h4>Директор:&nbsp;{{ garten.director }}</h4></li>
+            </ul>
+          </div>
     </div>
+    <h3 class="wrapper__content-title">Список детей</h3>
     <br>
-    <br>
-    <h3 style="display: flex; justify-content: center; align-items: center;">Список детей</h3>
-    <br>
-    <table>
-        <tr><th>ФИО</th><th>Группа</th><th></th></tr>
+    <table table class="wrapper__content__table">
+      <thead>
+        <tr>
+          <th>Ф.И.О</th>
+          <th>Группа</th>
+          <th></th>
+        </tr>
+      </thead>
         {% for child in childs %}
             <tr>
                 <td>{{child.Lastname}}&nbsp;{{child.Firstname}}&nbsp;{{child.number}}</td>

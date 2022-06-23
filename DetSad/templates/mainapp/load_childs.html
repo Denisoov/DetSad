@@ -53,7 +53,7 @@
       </li>
        {% else %}
        <li class="wrapper__navigation-link">
-        <a href="/add_garten" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
+        <a href="/add_garten" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
       </li>
         <li class="wrapper__navigation-link">
         <a href="/add_section" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
@@ -101,18 +101,26 @@
     <br>
     <h3 style="display: flex; justify-content: center; align-items: center;">Анализ загруженности детей в садиках</h3>
     <br>
-    <table>
-        <tr><th>№ садика</th><th>Название садика</th><th>Директор</th><th>ФИО</th><th>Группа</th><th></th></tr>
+    <table table class="wrapper__content__table">
+      <thead>
+        <tr>
+          <th>№ садика</th>
+          <th>Название садика</th>
+          <th>Директор</th>
+          <th>Ф.И.О.</th>
+          <th>Группа</th>
+          <th></th>
+        </tr>
+      </thead>
         {% for child in childs %}
-                <tr>
-                    <td>{{child.group.garten.number}}</td>
-                    <td>{{child.group.garten.title}}</td>
-                    <td>{{child.group.garten.director}}</td>
-                    <td>{{child.Lastname}}&nbsp;{{child.Firstname}}&nbsp;{{child.Secondname}}</td>
-                    <td>{{child.group.title}}</td>
-                    <td><a href="/child_info/{{child.id}}">Подробней</a></td>
-                </tr>
-
+          <tr>
+              <td>{{child.group.garten.number}}</td>
+              <td>{{child.group.garten.title}}</td>
+              <td>{{child.group.garten.director}}</td>
+              <td>{{child.Lastname}}&nbsp;{{child.Firstname}}&nbsp;{{child.Secondname}}</td>
+              <td>{{child.group.title}}</td>
+              <td><a href="/child_info/{{child.id}}">Подробней</a></td>
+          </tr>
         {% endfor %}
     </table>
     {% endif %}

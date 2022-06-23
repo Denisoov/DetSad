@@ -45,30 +45,33 @@
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Профиль</h2>
+    <h2 class="wrapper__content-title">Профиль</h2>
     <br>
-    <div style="display: flex;">
+    <div class="content__profile" >
          <img src="{% static 'img/chel.png' %}">
-        <ul>
-        {% if person.last_name != '' %}
-           {% if person.first_name != '' %}
-                <li><h3>{{ person.last_name }}&nbsp;{{ person.first_name }}</h3></li>
+        <div class="content__profile-description">
+          <ul class="content__profile-text">
+            {% if person.last_name != '' %}
+               {% if person.first_name != '' %}
+                    <li><h3>{{ person.last_name }}&nbsp;{{ person.first_name }}</h3></li>
+                {% else %}
+                    <li><h3>{{ person.username }}</h3></li>
+                {% endif %}
+    
             {% else %}
                 <li><h3>{{ person.username }}</h3></li>
             {% endif %}
-
-        {% else %}
-            <li><h3>{{ person.username }}</h3></li>
-        {% endif %}
-        <li><h4>Сотрудник департамента</h4></li>
-        </ul>
+            <li><h4 class="wrapper__content-title">Сотрудник департамента</h4></li>
+            </ul>
+            <li class="content__profile-button">
+              <a href="/change_profile/{{person.id}}" class="nav-link active" aria-current="page">
+                Редактировать профиль
+              </a>
+            </li>
+        </div>
     </div>
-    <br>
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/change_profile/{{person.id}}" class="nav-link active" aria-current="page">Изменить</a></li>
-    </ul>
 </div>
 </body>
 </html>
