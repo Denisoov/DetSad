@@ -135,7 +135,9 @@
 	padding: 10px 15px;
 	font-size: 14px;
 	vertical-align: top;
+    background: #f9f9f9;
 }
+
 img {
     height: 100px;
     width: 100px;

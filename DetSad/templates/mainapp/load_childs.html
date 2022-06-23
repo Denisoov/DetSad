@@ -23,60 +23,67 @@
 
 </head>
 
-<body>
-<div class="b-left">
+<body class="wrapper">
+<div class="wrapper__navigation">
     <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
+  <h2 class="wrapper__navigation-title">Меню</h2>
   <nav class="small" id="toc">
    <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+      <li class="wrapper__navigation-link">
+          <a href="/" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
       </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
+      <li class="wrapper__navigation-link">
+        <a href="/load_childs" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
       </li>
        {% if role == 'g' %}
-        <li class="my-2">
-        <a href="/group_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
+        <li class="wrapper__navigation-link">
+        <a href="/group_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
       </li>
        {% else %}
-       <li class="my-2">
-        <a href="/garten_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
+       <li class="wrapper__navigation-link">
+        <a href="/garten_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по садикам</a>
       </li>
        {% endif %}
        {% if role == 'g' %}
-        <li class="my-2">
-        <a href="/add_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_child" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
       </li>
-        <li class="my-2">
-        <a href="/add_parent" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_parent" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
       </li>
        {% else %}
-       <li class="my-2">
+       <li class="wrapper__navigation-link">
         <a href="/add_garten" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить садик</a>
       </li>
-        <li class="my-2">
-        <a href="/add_section" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_section" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить секцию</a>
       </li>
        {% endif %}
-        <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
+        <li class="wrapper__navigation-link">
+        <a href="/admin" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
       </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+      <li class="wrapper__navigation-link">
+        <a href="/logout" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
       </li>
     </ul>
   </nav>
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     {% if role == "g" %}
     <br>
-    <h3 style="display: flex; justify-content: center; align-items: center;">Анализ загруженности детей в группе</h3>
+    <h3 class="wrapper__content-title">Анализ загруженности детей в группе</h3>
     <br>
-    <table>
-        <tr><th>Группа</th><th>ФИО</th><th>Загруженность</th><th></th></tr>
+    <table class="wrapper__content__table">
+      <thead>
+        <tr>
+          <th>Группа</th>
+          <th>ФИО</th>
+          <th>Загруженность</th>
+          <th></th>
+        </tr>
+      </thead>
             {% for child in childs %}
                 {% for key, value in ld.items %}
                     {% if key == child.id %}

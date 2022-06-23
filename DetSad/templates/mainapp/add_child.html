@@ -19,89 +19,100 @@
   table {
     margin: auto;
   }
+  .flex-form-add {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  .input-field {
+    font-size: 20px;
+    width: 500px;
+    height: 42px;
+    outline: none;
+    border-radius: 7px;
+    padding-left: 5px;
+  }
+  .input-search::placeholder {
+    font-size: 20px;
+  }
+  .wrapper-button {
+    width: 60%;
+  }
 </style>
 
 </head>
 
-<body>
-<div class="b-left">
+<body class="wrapper">
+  <div class="wrapper__navigation">
     <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
+  <h2 class="wrapper__navigation-title">Меню</h2>
   <nav class="small" id="toc">
      <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+      <li class="wrapper__navigation-link">
+          <a href="/" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
       </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
+      <li class="wrapper__navigation-link">
+        <a href="/load_childs" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
       </li>
-        <li class="my-2">
-        <a href="/group_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
+        <li class="wrapper__navigation-link">
+        <a href="/group_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
       </li>
-        <li class="my-2">
-        <a href="/add_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_child" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
       </li>
-        <li class="my-2">
-        <a href="/add_parent" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
+        <li class="wrapper__navigation-link">
+        <a href="/add_parent" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
       </li>
-         <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
+         <li class="wrapper__navigation-link">
+        <a href="/admin" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
       </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+      <li class="wrapper__navigation-link">
+        <a href="/logout" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
       </li>
-
     </ul>
   </nav>
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Добавление ребёнка</h2>
+    <h2 class="wrapper__content-title">Добавление ребёнка</h2>
     <br>
     <form method="POST">
         {% csrf_token %}
-        <ul class="nav nav-pills">
-                <li class="nav-item"><h4>Имя:&nbsp;</h4></li>
-                <input name="Firstname" type="search" placeholder="Полное имя" size="80">&nbsp;
-            </ul>
-        <br>
-        <ul class="nav nav-pills">
-                <li class="nav-item"><h4>Фамилия:&nbsp;</h4></li>
-                <input name="Lastname" type="search" placeholder="Фамилия" size="80">&nbsp;
-            </ul>
-        <br>
-        <ul class="nav nav-pills">
-                <li class="nav-item"><h4>Отчество:&nbsp;</h4></li>
-                <input name="Secondname" type="search" placeholder="Отчество" size="80">&nbsp;
-            </ul>
-        <br>
-        <ul class="nav nav-pills">
-                <li class="nav-item"><h4>Дата рождения:&nbsp;</h4></li>
-                <input name="date" type="search" placeholder="Например 2001-12-31" size="80">&nbsp;
-            </ul>
-        <br>
-        <div style="display: flex;">
-            <h4>Выберите группу:&nbsp;</h4>
-         <select name='selected_group'>
+          <div class="flex-form-add">
+            <li class="nav-item"><h5>Имя:&nbsp;</h5></li>
+            <input class="input-field" name="Firstname" type="search" placeholder="Полное имя" size="60">
+          </div>
+          <div class="flex-form-add">
+            <li class="nav-item"><h5>Фамилия:&nbsp;</h5></li>
+            <input class="input-field" name="Lastname" type="search" placeholder="Фамилия" size="60">
+          </div>
+          <div class="flex-form-add">
+            <h5>Отчество:</h5>
+            <input class="input-field" name="Secondname" type="search" placeholder="Отчество" size="60">
+          </div>
+          <div class="flex-form-add">
+            <li class="nav-item"><h5>Дата рождения:&nbsp;</h5></li>
+            <input class="input-field" name="date" type="search" placeholder="Например 2001-12-31" size="60">
+          </div>
+          <div class="flex-form-add">
+            <h5>Выберите группу</h5>
+            <select class="input-field" name='selected_group'>
                {% for group in groups %}
-                      <option value='{{group.id}}'>{{group.garten.title}}: {{ group.title }}</option>
+                  <option value='{{group.id}}'>{{group.garten.title}}: {{ group.title }}</option>
                 {% endfor %}
              </select>
-
+          </div>
+          <div class="wrapper-button">
+            <button class="button-standart" type="submit">Добавить</button>
+          </div>
         </div>
-
-        <br>
-
-        <div class="form-group">
-            <div class="mx-auto col-lg-2">
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Добавить</button>
-            </div>
-        </div>
+        <h5 style="display: flex; justify-content: center; align-items: center;">{{ error }}</h5>
     </form>
     <br>
-    <h5 style="display: flex; justify-content: center; align-items: center;">{{ error }}</h5>
 </div>
 </body>
 </html>

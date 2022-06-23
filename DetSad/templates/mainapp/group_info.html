@@ -23,54 +23,62 @@
 
 </head>
 
-<body>
-<div class="b-left">
+<body class="wrapper">
+  <div class="wrapper__navigation">
     <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Меню</h2>
-  <nav class="small" id="toc">
-     <ul class="list-unstyled">
-      <li class="my-2">
-          <a href="/" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
-      </li>
-      <li class="my-2">
-        <a href="/load_childs" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
-      </li>
-        <li class="my-2">
-        <a href="/group_search" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
-      </li>
-        <li class="my-2">
-        <a href="/add_child" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
-      </li>
-        <li class="my-2">
-        <a href="/add_parent" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
-      </li>
-         <li class="my-2">
-        <a href="/admin" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
-      </li>
-      <li class="my-2">
-        <a href="/logout" class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
-      </li>
-    </ul>
-  </nav>
+    <h2 class="wrapper__navigation-title">Меню</h2>
+    <nav class="small" id="toc">
+      <ul class="list-unstyled">
+        <li class="wrapper__navigation-link">
+            <a href="/" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Профиль</a>
+        </li>
+        <li class="wrapper__navigation-link">
+          <a href="/load_childs" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Анализ загруженности</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a href="/group_search" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Поиск по группам</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a href="/add_child" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить ребёнка</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a href="/add_parent" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Добавить родителя ребенку</a>
+        </li>
+          <li class="wrapper__navigation-link">
+          <a href="/admin" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Панель администратора</a>
+        </li>
+        <li class="wrapper__navigation-link">
+          <a href="/logout" class="wrapper__navigation-link" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">Выйти</a>
+        </li>
+      </ul>
+    </nav>
 </aside>
 </div>
 
-<div class="b-right">
+<div class="wrapper__content">
     <br>
-    <h2 style="display: flex; justify-content: center; align-items: center;">Информация о группе </h2>
+    <h2 class="wrapper__content-title">Информация о группе </h2>
     <br>
-    <div style="display: flex;">
+    <div class="content__profile">
          <img src="{% static 'img/chel.png' %}">
-        <ul>
-            <li><h3>{{group.title}}</h3></li>
-        </ul>
+         <div class="content__profile-description">
+          <ul class="content__profile-text">
+              <li>
+                <h3>{{group.title}}</h3>
+              </li>
+          </ul>
+        </div>
     </div>
-    <br>
-    <br>
-    <h3 style="display: flex; justify-content: center; align-items: center;">Список детей</h3>
-    <br>
-    <table>
-        <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th></th></tr>
+    <h3 class="wrapper__content-title">Список детей</h3>
+    <table class="wrapper__content__table">
+      <thead>
+        <tr>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+          <th></th>
+        </tr>
+      </thead>
         {% for child in childs %}
             <tr>
                 <td>{{child.Lastname}}</td>
